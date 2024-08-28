@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/Y2hhdG1ldGhvZA==.css') }}">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="title">
+
+        <h2>Chatroom</h2>
+        <form method="post">
+            <button class="delete-btn" name="delete">Clear</button>
+            <button class="delete-btn" name="refresh">Refresh</button>
+        </form>
+
+    </div>
+
+    <div class="messages-container">
+
+        {% for msg in messages %}
+            <div class="message">
+                <h2>{{ msg.Username }}</h2>
+                <p>{{ msg.Message }}</p>
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="send-message-box">
+
+        <form method="post" name="message">
+
+            <input required autocomplete="off" class="message-input" type="text" name="username" placeholder="Username...">
+            <input required autocomplete="off" class="message-input" type="text" name="message" placeholder="Message...">
+            <input class="send-btn" type="submit" value="Send">
+
+        </form>
+
+    </div>
+
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+    </script>    
+</body>
+</html>
